@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   def update
   end
 
+  def myprofile
+  end
+
 
 
 end

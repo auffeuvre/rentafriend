@@ -2,9 +2,10 @@
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
+<div class="container">
+  <div class="form-inputs" class="row justify-content-center">
+  <div class="col-6">
+      <%= f.input :name %>
     <%= f.input :description %>
 
 
@@ -25,11 +26,16 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
   </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Update" %>
+    </div>
+</div>
+
 <% end %>
 
 <h3>Cancel my account</h3>
