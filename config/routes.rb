@@ -7,6 +7,9 @@ devise_for :users
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :activities
+  resources :activities do
+    resources :bookings, only: [:new, :create]
+  end
+  
 
 end
