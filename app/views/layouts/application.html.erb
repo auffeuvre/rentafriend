@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <%= render "shared/navbar" %>
+
     <title>Rentafriend</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
@@ -12,9 +12,26 @@
   </head>
 
   <body>
+  <%= render "shared/navbar" %>
+  <div class="container" style="margin-top:5rem">
     <%= render "shared/flashes" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+
+    <div class="footer fixed-bottom" style="backdrop-filter: blur(8px); background-color: rgba(244, 244, 244, 0.3);">
+        <div class="footer-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <div class="footer-copyright">
+          This footer is made by Agnes, Théo & Flo with <i class="fas fa-heart"></i> at Le Wagon
+        </div>
+        </div>
+    </div>
   </body>
 </html>
