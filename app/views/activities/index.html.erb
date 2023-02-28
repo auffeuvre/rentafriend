@@ -1,3 +1,11 @@
+
+<h1>Activities</h1>
+<%= form_with url: activities_path, method: :get do |f| %>
+  <%= f.label :query, "Search for:" %>
+  <%= f.text_field :query %>
+  <%= f.submit "Search" %>
+<% end %>
+<%= render "activities/list", activities: @activities %>
 <div class="container">
   <h1>Activities</h1>
 
@@ -7,3 +15,4 @@
     <%= link_to "New activity", new_activity_path %>
   </div>
 </div>
+
