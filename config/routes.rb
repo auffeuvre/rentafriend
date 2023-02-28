@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 devise_for :users
+# devise_scope :user do
+#   get 'login', to: 'users/sessions#new'
+#   get 'signup', to: 'users/registrations#new'
+
+# end
 
   resources :users, only: [:show, :edit, :update]
   root to: "activities#index"
@@ -13,5 +18,8 @@ devise_for :users
 
   get "/myactivities", to: "activities#myactivities", as: "myactivities"
   get "/mybookings", to: "bookings#mybookings", as: "mybookings"
+
+  get '/myprofile', to: 'users#myprofile'
+
 
 end

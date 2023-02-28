@@ -1,3 +1,4 @@
+
 <h1>Activities</h1>
 <%= form_with url: activities_path, method: :get do |f| %>
   <%= f.label :query, "Search for:" %>
@@ -5,3 +6,13 @@
   <%= f.submit "Search" %>
 <% end %>
 <%= render "activities/list", activities: @activities %>
+<div class="container">
+  <h1>Activities</h1>
+
+
+  <div class="col">
+    <%= render "activities/list", activities: @activities %>
+    <%= link_to "New activity", new_activity_path %>
+  </div>
+</div>
+
