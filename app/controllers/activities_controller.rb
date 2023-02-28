@@ -16,7 +16,8 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.all
+    @search = params[:query] if params[:query]
+    @activities = Activity.where("(location ILIKE ? OR description ILIKE ? OR title ILIKE ?) ", "%#{@search}%", "%#{@search}%", "%#{@search}%").and(Activity.where.not(user_id: current_user))
   end
 
   def show
@@ -36,6 +37,10 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity.destroy
     redirect_to activities_path, notice: "Activity was successfully destroyed."
+  end
+
+  def myactivities
+    @activities = Activity.where(user_id: current_user)
   end
 
   private

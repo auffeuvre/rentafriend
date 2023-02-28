@@ -1,5 +1,6 @@
 <% activities.each do |activity| %>
     <%= render activity %>
+    <p>Next booking incoming : <%= activity.bookings.sort_by { |booking| booking.date.to_time }.first.date unless activity.bookings.empty? %> </p>
     <p>
     <%= link_to "Show this activity", activity %>
     </p>

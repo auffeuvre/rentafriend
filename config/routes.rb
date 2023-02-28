@@ -10,6 +10,8 @@ devise_for :users
   resources :activities do
     resources :bookings, only: [:new, :create]
   end
-  
+
+  get "/myactivities", to: "activities#myactivities", as: "myactivities"
+  get "/mybookings", to: "bookings#mybookings", as: "mybookings"
 
 end
