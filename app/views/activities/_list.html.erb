@@ -1,6 +1,7 @@
 <% activities.each do |activity| %>
-    <%= render activity %>
-    <p>
-    <%= link_to "Show this activity", activity %>
-    </p>
+    <div class=" col-md-4 col-xxl-2 .col-sm-12 mt-5" id="a-none">
+    <%= link_to activity_path(activity) do %>
+      <%= render activity %>
+    <% end %>
+    </div>
   <% end %>

@@ -2,8 +2,8 @@
   <h1>Activities</h1>
 
 
-  <div class="col">
-    <%= render "activities/list", activities: @activities %>
-    <%= link_to "New activity", new_activity_path %>
+  <div class="row">
+      <%= render "activities/list", activities: @activities %>
   </div>
+      <%= link_to "New activity", new_activity_path, class: "btn btn-ghost" %>
 </div>
