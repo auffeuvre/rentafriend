@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(params_activity)
+    @activity.user_id = current_user.id
     if @activity.save
       redirect_to activity_path(@activity)
     else
@@ -15,7 +16,13 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.all
+    @search = params[:query] if params[:query]
+    @activities = Activity.where("(description ILIKE ? OR title ILIKE ?) ", "%#{@search}%", "%#{@search}%").and(Activity.where.not(user_id: current_user))
+    if params[:at]
+      @at = params[:at]
+      @km = params[:km] if params[:km]
+      @activities = @activities.near(@at, @km) unless params[:at].empty?
+    end
   end
 
   def show
@@ -35,6 +42,10 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity.destroy
     redirect_to activities_path, notice: "Activity was successfully destroyed."
+  end
+
+  def myactivities
+    @activities = Activity.where(user_id: current_user)
   end
 
   private
