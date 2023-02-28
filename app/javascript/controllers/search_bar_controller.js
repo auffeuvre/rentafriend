@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ['results', 'input']
 
   connect() {
-    console.log('toto')
+    console.log('Connected to search bar')
   }
 
   autocomplete(e) {
