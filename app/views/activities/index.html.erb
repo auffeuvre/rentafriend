@@ -1,3 +1,9 @@
-<h1>Activities</h1>
-<%= render "activities/list", activities: @activities %>
-<%= link_to "New activity", new_activity_path %>
+<div class="container">
+  <h1>Activities</h1>
+
+
+  <div class="col">
+    <%= render "activities/list", activities: @activities %>
+    <%= link_to "New activity", new_activity_path %>
+  </div>
+</div>
