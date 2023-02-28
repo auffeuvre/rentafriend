@@ -1,5 +1,4 @@
 
-
 <div class="container">
   <div class="col">
     <h1>Activities</h1>
@@ -15,8 +14,9 @@
       <%= f.label :km, "km" %>
       <%= f.submit "Search" %>
     <% end %>
-    <%= render "activities/list", activities: @activities %>
-    
+  <div class="row">
+      <%= render "activities/list", activities: @activities %>
   </div>
+      <%= link_to "New activity", new_activity_path, class: "btn btn-ghost" %>
 </div>
 
