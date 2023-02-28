@@ -17,7 +17,12 @@ class ActivitiesController < ApplicationController
 
   def index
     @search = params[:query] if params[:query]
-    @activities = Activity.where("(location ILIKE ? OR description ILIKE ? OR title ILIKE ?) ", "%#{@search}%", "%#{@search}%", "%#{@search}%").and(Activity.where.not(user_id: current_user))
+    @activities = Activity.where("(description ILIKE ? OR title ILIKE ?) ", "%#{@search}%", "%#{@search}%").and(Activity.where.not(user_id: current_user))
+    if params[:at]
+      @at = params[:at]
+      @km = params[:km] if params[:km]
+      @activities = @activities.near(@at, @km) unless params[:at].empty?
+    end
   end
 
   def show

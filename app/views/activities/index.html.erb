@@ -1,18 +1,22 @@
 
-<h1>Activities</h1>
-<%= form_with url: activities_path, method: :get do |f| %>
-  <%= f.label :query, "Search for:" %>
-  <%= f.text_field :query %>
-  <%= f.submit "Search" %>
-<% end %>
-<%= render "activities/list", activities: @activities %>
+
 <div class="container">
-  <h1>Activities</h1>
-
-
   <div class="col">
+    <h1>Activities</h1>
+    <%= form_with url: activities_path, method: :get do |f| %>
+      <%= f.label :query, "Search for:" %>
+      <%= f.text_field :query %>
+      <%= f.label :at, "at:" %>
+      <div data-controller="search-bar"><%= f.text_field :at, data: { action: "keyup->search-bar#autocomplete", 'search-bar-target': "input" } %>
+        <ul data-search-bar-target="results">
+        </ul>
+      </div>
+      <%= f.select :km, [5, 10, 20]%>
+      <%= f.label :km, "km" %>
+      <%= f.submit "Search" %>
+    <% end %>
     <%= render "activities/list", activities: @activities %>
-    <%= link_to "New activity", new_activity_path %>
+    
   </div>
 </div>
 
