@@ -1,11 +1,10 @@
 
 <div class="container d-flex justify-content-between">
   <div class="flex-grow-1">
-    <%= render @activity %>
-    <% @activity.bookings.each do |booking| %>
-      <p><%= booking.date %> by <%= booking.user.name %></p>
-    <% end %> <br>
+    <%= render @activity %><br/>
     <p><strong>Description :</strong></p><%= @activity.description %>
+
+    <%= render "activities/map" %>
     <div class="mt-5 mb-5">
       <%= link_to "Back to activities", activities_path %>
     </div>

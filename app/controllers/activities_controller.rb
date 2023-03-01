@@ -35,6 +35,11 @@ class ActivitiesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = [{ 
+      lat: @activity.latitude,
+      lng: @activity.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {activity: @activity})
+    }] if @activity.geocoded?
   end
 
   def edit
@@ -81,6 +86,6 @@ class ActivitiesController < ApplicationController
   end
 
   def params_activity
-    params.require(:activity).permit(:title, :description, :location, :poster_url)
+    params.require(:activity).permit(:title, :description, :location, :poster_url, :photo)
   end
 end
