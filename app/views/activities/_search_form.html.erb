@@ -1,0 +1,7 @@
+<%= simple_form_for @activities do |f| %>
+  <%= f.input :query %>
+  <%= f.input :location, data: { controller: "search-bar", search_bar_target: "location", search_bar_api_key_value: ENV["MAPBOX_API_KEY"]} %>
+  <%= f.select :km, [5, 10, 20]%>
+  <%= f.label :km, "km" %>
+  <%= f.submit "Search" %>
+<% end %>

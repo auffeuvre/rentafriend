@@ -13,7 +13,7 @@ devise_for :users
   # Defines the root path route ("/")
   # root "articles#index"
   resources :activities do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :update]
   end
 
   get "/myactivities", to: "activities#myactivities", as: "myactivities"

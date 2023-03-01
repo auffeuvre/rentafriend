@@ -11,8 +11,8 @@ User.destroy_all
 
 puts "Start creating ..."
 
-User.create(email: 'agnes@mail.com', name: 'ags', description: 'Looking for a friend', password: '123456')
-User.create(email: 'florent@mail.com', name: 'flo', description: 'Suggest activities', password: '234567')
+user1 = User.create(email: 'agnes@mail.com', name: 'ags', description: 'Looking for a friend', password: '123456')
+user2 = User.create(email: 'florent@mail.com', name: 'flo', description: 'Suggest activities', password: '234567')
 
 Activity.create(
   title: 'Cooking',
@@ -21,7 +21,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 48.862725,
   longitude: 2.287592,
-  user_id: 1
+  user_id: user1.id
 )
 
 Activity.create(
@@ -31,7 +31,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 48.840795205059,
   longitude: 2.31738532595453,
-  user_id: 2
+  user_id: user2.id
 )
 Activity.create(
   title: 'Music',
@@ -40,7 +40,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 48.8513299590573,
   longitude: 2.39916496556445,
-  user_id: 1
+  user_id: user1
 )
 
 Activity.create(
@@ -49,8 +49,8 @@ Activity.create(
   location: "42 Rue Victorien Sardou, 69007 Lyon 7e Arrondissement, France",
   poster_url: 'empty',
   latitude: 45.7462456538984,
-  longitude:4.8545837,
-  user_id: 2
+  longitude: 4.8545837,
+  user_id: user2
 )
 
 Activity.create(
@@ -60,7 +60,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 45.7514208091103,
   longitude: 4.93664436338489,
-  user_id: 1
+  user_id: user1
 )
 
 Activity.create(
@@ -70,7 +70,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 45.7838408569418,
   longitude: 4.93195650788634,
-  user_id: 2
+  user_id: user2
 )
 
 Activity.create(
@@ -80,7 +80,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 45.7751181660203,
   longitude: 4.83526948822851,
-  user_id: 1
+  user_id: user1
 )
 
 Activity.create(
@@ -90,7 +90,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 45.7533118572327,
   longitude: 4.90031348327106,
-  user_id: 2
+  user_id: user2
 )
 
 Activity.create(
@@ -100,7 +100,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 45.7560333207804,
   longitude: 4.83058163272996,
-  user_id: 1
+  user_id: user1
 )
 
 Activity.create(
@@ -110,7 +110,7 @@ Activity.create(
   poster_url: 'empty',
   latitude: 45.6922037290845,
   longitude: 4.923752760764,
-  user_id: 2
+  user_id: user2
 )
 
 puts "Done creating"

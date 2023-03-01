@@ -23,6 +23,14 @@ class ActivitiesController < ApplicationController
       @km = params[:km] if params[:km]
       @activities = @activities.near(@at, @km) unless params[:at].empty?
     end
+
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {activity: activity})
+      }
+    end
   end
 
   def show
