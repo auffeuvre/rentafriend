@@ -14,7 +14,7 @@ puts "Start creating ..."
 user1 = User.create(email: 'agnes@mail.com', name: 'ags', description: 'Looking for a friend', password: '123456')
 user2 = User.create(email: 'florent@mail.com', name: 'flo', description: 'Suggest activities', password: '234567')
 
-Activity.create(
+Activity.create!(
   title: 'Cooking',
   description: 'Cooking lights pastries ',
   location: 'Paris',
