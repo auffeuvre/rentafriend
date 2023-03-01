@@ -17,6 +17,9 @@ devise_for :users
   end
 
   get "/myactivities", to: "activities#myactivities", as: "myactivities"
+
+  get "/myactivities/:id", to: "activities#show_myactivities", as: "show_myactivities"
+
   get "/mybookings", to: "bookings#mybookings", as: "mybookings"
 
   get '/myprofile', to: 'users#myprofile'
