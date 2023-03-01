@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :set_activity, only: %i[ show edit update destroy ]
+  before_action :set_activity, only: %i[ show edit update destroy show_myactivities ]
 
   def new
     @activity = Activity.new
@@ -37,6 +37,9 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
+    unless current_user == @activity.user
+      redirect_to user_path(current_user), notice: "You can't modify other's activities."
+    end
   end
 
   def update
@@ -48,12 +51,26 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    redirect_to user_path(current_user), notice: "You can't destroy other's activities."
     @activity.destroy
     redirect_to activities_path, notice: "Activity was successfully destroyed."
   end
 
   def myactivities
     @activities = Activity.where(user_id: current_user)
+    @bookings_to_validate = []
+    @activities.each do |activity| 
+      @bookings_to_validate << activity.bookings.select { |booking| booking.validation.nil? }
+    end
+    @bookings_to_validate.flatten
+    @bookings_incoming = []
+    @activities.each do |activity| 
+      @bookings_incoming << activity.bookings.select { |booking| booking.validation == true && booking.date >= Date.today() }
+    end
+    @bookings_incoming.flatten
+  end
+
+  def show_myactivities
   end
 
   private
