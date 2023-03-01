@@ -1,24 +1,18 @@
-  <p>
-    <strong>Date:</strong>
-    <%= booking.date %>
-  </p>
-  <p>
-    <strong>Title:</strong>
-    <%= booking.activity.title %>
-  </p>
-  <p>
-    <strong>Location:</strong>
-    <%= booking.activity.location %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= booking.activity.description %>
-  </p>
-  <p>
-    <strong>Photo:</strong>
-    <%= booking.activity.poster_url %>
-  </p>
-    <p>
-    <strong>Owner:</strong>
-    <%= booking.activity.user.name %>
-  </p>
+<% path = asset_path("logo_friend.png")%>
+
+  <div class="card-product">
+    <img src=<%= path %>" />
+    <div class="card-product-infos">
+      <div class="d-flex justify-content-between">
+        <div>
+          <h2><%= booking.activity.title %></h2>
+          <p><%= booking.activity.description %></p>
+          <p><i class="fa-sharp fa-solid fa-location-dot me-1"></i><%= booking.activity.location %><p>
+        </div>
+        <div>
+          <h2><%= booking.date %></h2>
+          <p><strong>Owner:</strong><%= booking.activity.user.name %></p>
+        </div>
+      </div>
+    </div>
+  </div>
