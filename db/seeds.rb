@@ -13,12 +13,13 @@ User.destroy_all
 puts "Start creating ..."
 
 user1 = User.create(
-  email: 'agnes@mail.com',
+   email: 'agnes@mail.com',
    name: 'ags',
    description: 'Looking for a friend',
    password: '123456',
    photo: ActionDispatch::Http::UploadedFile.new(tempfile: URI.open("https://res.cloudinary.com/dqprenqdl/image/upload/v1677689051/avatar-femme_dmlak1.jpg") , filename: "femme.jpg", content_type: "image/jpg")
 )
+
 
 user2 = User.create(
   email: 'florent@mail.com',
@@ -29,7 +30,7 @@ user2 = User.create(
 )
 
 
-photo1 = Activity.create(
+Activity.create(
   title: 'Cooking',
   description: 'Cooking lights pastries ',
   location: 'Paris',

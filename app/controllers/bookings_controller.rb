@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @response = params[:response]
     @activity = Activity.find(params[:activity_id])
     Booking.find(params[:id]).update(validation: @response)
-    redirect_to activity_path(@activity), notice: "Booking was successfully validated."
+    redirect_to myactivities_path, notice: "Booking was successfully validated."
   end
 
   private
