@@ -1,17 +1,13 @@
 class BookingsController < ApplicationController
   before_action :set_activity, only: %i[ new, create  ]
 
-  def new
-    @booking = Booking.new
-    @activity = Activity.find(params[:activity_id])
-  end
 
   def create
     @booking = Booking.new(params_booking)
     @booking.user_id = current_user.id
     @booking.activity_id = @activity.id
     if @booking.save
-      redirect_to activity_path(@activity)
+      redirect_to mybookings_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,6 +15,13 @@ class BookingsController < ApplicationController
 
   def mybookings
     @bookings = Booking.where(user_id: current_user)
+  end
+
+  def update
+    @response = params[:response]
+    @activity = Activity.find(params[:activity_id])
+    Booking.find(params[:id]).update(validation: @response)
+    redirect_to activity_path(@activity), notice: "Booking was successfully validated."
   end
 
   private

@@ -1,8 +1,8 @@
 
-<div class="container">
-  <div class="col">
+<div class="container floclass">
+  <div class="row">
     <h1>Activities</h1>
-    <%= form_with url: activities_path, method: :get do |f| %>
+      <%= form_with url: activities_path, method: :get do |f| %>
       <%= f.label :query, "Search for:" %>
       <%= f.text_field :query %>
       <%= f.label :at, "at:" %>
@@ -14,8 +14,14 @@
       <%= f.label :km, "km" %>
       <%= f.submit "Search" %>
     <% end %>
+  </div>
+
   <div class="row">
       <%= render "activities/list", activities: @activities %>
   </div>
 </div>
+
+
+
+<%= render "activities/map" %>
 
