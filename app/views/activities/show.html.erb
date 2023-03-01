@@ -1,24 +1,20 @@
-<div class="container d-flex ">
-  <div class="col-6">
+<div class="container d-flex justify-content-between">
+  <div class="flex-grow-1">
     <%= render @activity %>
-
     <% @activity.bookings.each do |booking| %>
       <p><%= booking.date %> by <%= booking.user.name %></p>
-    <% end %>
+    <% end %> <br>
+    <p><strong>Description :</strong></p><%= @activity.description %>
+    <div class="mt-5 mb-5">
+      <%= link_to "Back to activities", activities_path %>
     </div>
+  </div>
 
-  <div class="col-6">
+
+  <div class="p-3 pt-5">
     <%= simple_form_for [@activity, @booking] do |f| %>
     <%= f.input :date%>
     <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
-
-<div class="mt-5 mb-5">
-  <%= link_to "Edit this activity", edit_activity_path(@activity) %>
-  <%= link_to "Delete this activity", activity_path(@activity), data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } %>
-  <%= link_to "Back to activities", activities_path %>
-</div>
-
-<%# afficher la description de l'activite et faire le space betwwen image et formulaire %>

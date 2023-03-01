@@ -5,7 +5,7 @@ require "faker" # This file should contain all the record creation needed to see
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+Booking.destroy_all
 Activity.destroy_all
 User.destroy_all
 
@@ -45,8 +45,8 @@ Activity.create(
 
 Activity.create(
   title: 'Going for a walk',
-  description: "42 Rue Victorien Sardou, 69007 Lyon 7e Arrondissement, France",
-  location: Faker::Address.city,
+  description: "Nice walk close to the Rhône",
+  location: "42 Rue Victorien Sardou, 69007 Lyon 7e Arrondissement, France",
   poster_url: 'empty',
   latitude: 45.7462456538984,
   longitude:4.8545837,
