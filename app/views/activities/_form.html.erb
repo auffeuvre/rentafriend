@@ -1,7 +1,13 @@
-<%= simple_form_for @activity do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.input :poster_url %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class ="col-6">
+      <%= simple_form_for @activity do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.input :poster_url %>
+        <div class="d-flex justify-content-center"><%= f.button :submit, class: 'btn btn-primary'%></div>
+      <% end %>
+    </div>
+  </div>
+</div>
