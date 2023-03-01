@@ -1,6 +1,7 @@
+<% path = activity.photo.attached? ? cl_image_path(activity.photo.key, height: 300, crop: :fill) : asset_path( 'logo_friend.png')%>
 
 <div class="card-trip">
-  <img src="<%= activity.poster_url %>" />
+  <img src="<%=path%>">
   <div class="card-trip-infos">
     <div>
       <h2><%= activity.title %></h2>
@@ -11,6 +12,6 @@
     </div>
     <h2 class="card-trip-pricing">£99.99</h2>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-    
+
   </div>
 </div>
