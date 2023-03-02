@@ -10,7 +10,7 @@
         <%= activity.user.name %></p>-->
       </div>
         <h2 class="card-trip-pricing">£99.99</h2>
-          <%= link_to user_path(user) do%>
+          <%= link_to user_path(activity.user) do%>
             <img src="<%= cl_image_path(activity.user.photo.key, height: 900) %>" class="card-trip-user avatar-bordered" />
           <%end%>
       </div>
