@@ -11,33 +11,59 @@
   <label for="floatingSelect">Works with selects</label>
 </div> %>
 
-
-
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
-  </li>
-
-</ul>
-
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">...</div>
-</div>
-
-
 <div class="row">
   <h1>Activities</h1>
 <!-- activities grid -->
   <div class="col-8" id="activities">
     <div class="row">
+
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Activity</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Map</button>
+      </li>
+
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+        <!--------------------------------------- T A B 1 ------------------------------------------------------------------------------------->
+      content 1
+      <div class="row">
+        <%# <div class=" col-md-2 col-xxl-4 .col-sm-8 mt-5"> %>
+        <div class="d-flex flex-column">
         <%= render "activities/list", activities: @activities %>
+        </div>
+      </div>
+
+
+        <!--------------------------------------- T A B 1 — E N D ------------------------------------------------------------------------------------->
+
+      </div>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+        <!--------------------------------------- T A B 2 ------------------------------------------------------------------------------------->
+  Content 2
+        <div class="" id="map">
+          <%= render "activities/map" %>
+        </div>
+
+
+
+        <!--------------------------------------- T A B 2 — E N D ------------------------------------------------------------------------------------->
+      </div>
+    </div>
+
+
+
     </div>
   </div>
-  <div class="col-4" style="">
+  <!-------------colone 1 end ---------------->
+
+
+  <!-------------colone 2 ---------------->
+  <div class="col-4">
     <div class="" style="background-color: #FFF; border-radius: 10px; position: sticky; top: 5rem; padding:2rem;">
 
       <div class="mb-3">
@@ -66,14 +92,18 @@
 
         <% end %>
       </div>
+
+      <div>
+        <%= link_to "+ New activity", new_activity_path, class: "btn btn-flat" %>
+      </div>
+
     </div>
   </div>
-    <%= link_to "+ New activity", new_activity_path, class: "btn btn-flat" %>
-  </div>
+  <!-------------colone 2 end ---------------->
+
+
+
 </div>
 
-  <div class="" id="map">
-    <%= render "activities/map" %>
-  </div>
 
 <!-- forms -->
