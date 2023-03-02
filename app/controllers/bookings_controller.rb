@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_activity, only: %i[ new, create ]
+  before_action :set_activity, only: %i[ new, create  ]
 
 
   def create
@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
   end
 
   def mybookings
-    @bookings = Booking.where(user_id: current_user)
+    @bookings = Booking.where(user_id: current_user).sort_by{|book| book.date}.group_by {|booking| Date::MONTHNAMES[booking.date.month].upcase.first(3)}
   end
 
   def update
@@ -22,11 +22,6 @@ class BookingsController < ApplicationController
     @activity = Activity.find(params[:activity_id])
     Booking.find(params[:id]).update(validation: @response)
     redirect_to myactivities_path, notice: "Booking was successfully validated."
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
-    @message = Message.new
   end
 
   private

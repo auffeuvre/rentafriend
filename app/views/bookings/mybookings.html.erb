@@ -1,7 +1,15 @@
 <h1>My bookings</h1>
-<% @bookings.each do |booking| %>
+<% @bookings.each do |month_bookings| %>
   <div class="a-none">
-    <%= render booking %>
+    <% month_bookings[1].sort_by{|book| book.date}.each_with_index do |booking, index| %>
+      <% if index == 0 %>
+        <div class="border-top my-3"></div>
+      <% end %>
+      <div class="d-flex">
+        <div style="width: 5rem; color:rgba(0, 0, 0, 0.55);"><%= index == 0 ? month_bookings[0] : " " %></div>
+        <%= render "booking", booking: booking %>
+      </div>
+    <% end %>
   </div>
 <% end %>
 

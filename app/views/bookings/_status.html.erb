@@ -1,0 +1,7 @@
+<% if booking.validation.nil? %>
+  <p style="font-size: 14px;"><i class="fa-solid fa-clock"></i> PENDING</p>
+<% elsif booking.validation == true %>
+  <p style="font-size: 14px;"><i class="fa-solid fa-square-check"></i> ACCEPTED</p>
+<% elsif booking.validation == false %>
+  <p style="font-size: 14px;"><i class="fa-solid fa-square-xmark"></i> DECLINED</p>
+<% end %>
