@@ -8,7 +8,7 @@
         </div>
       </div>
       <% @activities.each do |activity| %>
-        <div class=" col-md-4 col-xxl-4 col-sm-12 mt-5" id="a-none">
+        <div class=" col-md-4 col-xxl-4 col-sm-12 mt-5 a-none">
           <%= link_to show_myactivities_path(activity) do %>
             <%= render activity %>
           <% end %>
@@ -23,7 +23,7 @@
           <% @bookings_to_validate.flatten.each do |booking_to_validate| %>
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" style="height: 40px;" />
+              <img src="<%= cl_image_path(booking_to_validate.user.photo.key, height: 900) %>" class="card-trip-user avatar-bordered" />
               <div class="ps-2">
                 <% @activity = booking_to_validate.activity %>
                 <p class="my-0"><strong><%= @activity.title %></strong> with <%= booking_to_validate.user.name %></p>
@@ -41,7 +41,7 @@
         <% @bookings_incoming.flatten.sort_by{|book| book.date}.each do |booking_incoming| %>
           <% @activity = booking_incoming.activity %>
           <div class="d-flex align-items-center">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" style="height: 40px;" />
+            <img src="<%= cl_image_path(booking_incoming.user.photo.key, height: 900) %>" class="card-trip-user avatar-bordered" />
             <div class="ps-2">
               <p class="my-0"><strong><%= @activity.title %></strong> with <%= booking_incoming.user.name %> </p>
               <p class="my-0"><%= booking_incoming.date %> </p>
