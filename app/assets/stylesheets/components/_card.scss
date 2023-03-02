@@ -59,11 +59,13 @@ width:110%  }
   right: 16px;
   top: -20px;
   width: 40px;
+  height: 40px;
 }
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
+  width: 100%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -72,7 +74,9 @@ width:110%  }
 
 .card-product img {
   height: 100%;
-  width: 120px;
+
+  width: 150px;
+
   object-fit: cover;
 }
 
@@ -92,4 +96,7 @@ width:110%  }
 
 .card-product .card-product-infos {
   padding: 16px;
+
+
+  width: 100%;
 }
