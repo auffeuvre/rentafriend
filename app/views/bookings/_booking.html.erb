@@ -1,7 +1,7 @@
-<% path = booking.activity.photo.attached? ? cl_image_path(booking.activity.photo.key, height: 300, crop: :fill) : asset_path( ‘logo_friend.png’)%>
+<% path = booking.activity.photo.attached? ? cl_image_path(booking.activity.photo.key, height: 300, crop: :fill) : asset_path("logo_friend.png")%>
 
-  <div class="card-product">
-    <img src=<%= path %>" />
+  <div class="card-product mb-3">
+    <img src=<%= path %> />
     <div class="card-product-infos">
       <div class="d-flex justify-content-between">
         <div>
@@ -10,8 +10,9 @@
           <p><i class="fa-sharp fa-solid fa-location-dot me-1"></i><%= booking.activity.location %><p>
         </div>
         <div>
-          <h2><%= booking.date %></h2>
-          <p><strong>Owner:</strong><%= booking.activity.user.name %></p>
+          <h2 class="pb-2"><%= booking.date %></h2>
+          <%= render "status", booking: booking %>
+          <p><strong>By: </strong><%= booking.activity.user.name %></p>
         </div>
       </div>
     </div>
