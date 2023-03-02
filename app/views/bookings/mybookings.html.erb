@@ -1,11 +1,4 @@
 <h1>My bookings</h1>
 <% @bookings.each do |booking| %>
     <%= render booking %>
-    <p>
-    <%
-=begin%>
- <%= link_to "Show this booking", booking %> 
-<%
-=end%>
-    </p>
   <% end %>
