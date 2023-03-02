@@ -1,4 +1,4 @@
-<% path = asset_path("logo_friend.png")%>
+<% path = booking.activity.photo.attached? ? cl_image_path(booking.activity.photo.key, height: 300, crop: :fill) : asset_path( ‘logo_friend.png’)%>
 
   <div class="card-product">
     <img src=<%= path %>" />
