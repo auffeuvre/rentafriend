@@ -1,6 +1,7 @@
 <% path = activity.photo.attached? ? cl_image_path(activity.photo.key, height: 300, crop: :fill) : asset_path( 'logo_friend.png')%>
-
+<%= link_to activity_path(activity) do %>
 <div class="card-trip">
+
   <img src="<%= path %>">
     <div class="card-trip-infos">
       <div>
@@ -9,9 +10,11 @@
         <!--<p><strong>Description:</strong><%= activity.description %> <strong>Owner:</strong>
         <%= activity.user.name %></p>-->
       </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
+
           <%= link_to user_path(activity.user) do%>
+
             <img src="<%= cl_image_path(activity.user.photo.key, height: 900) %>" class="card-trip-user avatar-bordered" />
           <%end%>
-      </div>
+  </div>
 </div>
+<% end %>

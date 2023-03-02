@@ -2,16 +2,21 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="map"
 export default class extends Controller {
+  static targets = [ "map" ]
   static values = {
     apiKey: String,
     markers: Array
   }
 
+
   connect() {
     console.log("Connected to map controller")
+  }
+
+  loadmap() {
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.mapTarget,
       style: "mapbox://styles/mapbox/streets-v10"
     })
     this.#addMarkersToMap()
