@@ -2,7 +2,8 @@
 <div class="row">
 
   <!-- activities grid -->
-  <div class="col-8" id="activities">
+  <div class="col-8" id="activities" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     <div class="d-flex mb-5" style="justify-content: space-between;">
       <h1>Activities</h1>
       <p><%= link_to "+ New activity", new_activity_path, class: "btn btn-flat" %></p>
@@ -13,7 +14,7 @@
           <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Activity</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Map</button>
+          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" data-action="click->map#loadmap">Map</button>
         </li>
       </ul>
     </div><!-- row end -->
@@ -30,9 +31,9 @@
           <!--------------------------------------- T A B 1 — E N D ------------------------------------------------------------------------------------->
         </div> <!-- row end -->
       </div> <!-- tab-pane 1 end -->
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="1">
         <!--------------------------------------- T A B 2  - C O N T E N T------------------------------------------------------------------------------------->
-        <div class="" id="map">
+        <div class="" id="map" data-map-target="map">
           <%= render "activities/map" %>
         </div>
         <!--------------------------------------- T A B 2 — E N D ------------------------------------------------------------------------------------->
