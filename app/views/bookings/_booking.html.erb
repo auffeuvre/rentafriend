@@ -1,5 +1,5 @@
 <% path = booking.activity.photo.attached? ? cl_image_path(booking.activity.photo.key, height: 300, crop: :fill) : asset_path( ‘logo_friend.png’)%>
-
+<%= link_to booking_path(booking) do %>
   <div class="card-product">
     <img src=<%= path %>" />
     <div class="card-product-infos">
@@ -16,3 +16,4 @@
       </div>
     </div>
   </div>
+<% end %>
