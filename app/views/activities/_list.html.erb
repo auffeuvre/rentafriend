@@ -1,7 +1,7 @@
 <% activities.each do |activity| %>
-    <div id="a-none">
-    <%= link_to activity_path(activity) do %>
-      <%= render activity %>
-    <% end %>
+    <div class=" col-md-4 col-xxl-2 .col-sm-12 mt-5" id="a-none">
+      <%= link_to activity_path(activity) do %>
+        <%= render activity, user: activity.user %>
+      <% end %>
     </div>
-  <% end %>
+<% end %>
