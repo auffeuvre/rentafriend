@@ -24,6 +24,10 @@ class BookingsController < ApplicationController
     redirect_to myactivities_path, notice: "Booking was successfully validated."
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   private
 
   def set_activity
