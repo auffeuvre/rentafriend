@@ -1,1 +1,10 @@
+<h4> Messages of <%= @booking.activity.title %></h4>
+<%= turbo_stream_from "messages" %>
+<div id="messages">
+ <%= render @messages %>
+</div>
+<%= simple_form_for [@booking, @message] do |f| %>
+  <%= f.input :content %>
+  <%= f.button :submit, class: 'btn btn-primary'%>
+<% end %>
 <%= @booking.date %>
