@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ['results', 'input']
 
   connect() {
-    console.log('toto')
+    console.log('Connected to search bar')
   }
 
   autocomplete(e) {
@@ -15,7 +15,7 @@ export default class extends Controller {
     .then(response => response.json())
     .then((data) => {
       data.features.forEach(element => {
-        this.resultsTarget.insertAdjacentHTML('beforeend', `<li data-action="click->search-bar#fill">${element.place_name}</li>`);
+        this.resultsTarget.insertAdjacentHTML('beforeend', `<option data-action="click->search-bar#fill" value="${element.place_name}"></option>`);
       });
 
     });

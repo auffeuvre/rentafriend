@@ -1,7 +1,14 @@
 <% if booking.validation.nil? %>
-  <p>PENDING : 
-  <%= link_to "VALIDATE", activity_booking_path(@activity, booking, :response => true), data: { turbo_method: :patch, turbo_confirm: "Are you sure ?" } %>
-  <%= link_to "DECLINE", activity_booking_path(@activity, booking, :response => false), data: { turbo_method: :patch, turbo_confirm: "Are you sure ?" } %></p>
+<div class=" pe-2">
+  <%= link_to activity_booking_path(@activity, booking, :response => true), data: { turbo_method: :patch, turbo_confirm: "Are you sure ?" } do %>
+    <i class="fa-solid fa-square-check display-6"></i>
+  <% end %>
+</div>
+<div>
+  <%= link_to activity_booking_path(@activity, booking, :response => false), data: { turbo_method: :patch, turbo_confirm: "Are you sure ?" } do %>
+    <i class="fa-solid fa-square-xmark display-6"></i>
+  <% end %>
+</div>
 <% elsif booking.validation == true %>
   <p>ACCEPTED</p>
 <% elsif booking.validation == false %>

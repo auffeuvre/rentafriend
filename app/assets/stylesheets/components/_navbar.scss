@@ -1,6 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  // background: white;
+  backdrop-filter: blur(8px);
+  background-color: rgba(69, 214, 190, 0.651);
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid #3333332a;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +16,10 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon h5 {
+  // font-family: 'Gloock', serif;
+  font-family: 'Bungee Inline', cursive;
+
 }
