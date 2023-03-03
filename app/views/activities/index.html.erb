@@ -1,12 +1,11 @@
 
-<div class="row bg bg_gif_01">
+<div class="row">
 
   <!-- activities grid -->
   <div class="col-8" id="activities" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     <div class="d-flex mb-5" style="justify-content: space-between;">
       <h1>Activities</h1>
-      <p><%= link_to "+ New activity", new_activity_path, class: "btn btn-flat" %></p>
     </div>
     <div class="row">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -74,4 +73,4 @@
       </div><!-- end mb3 -->
     </div>
   </div><!-- end col 4 -->
-</div><!-- end primary row ->
+</div><!-- end primary row -->

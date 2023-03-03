@@ -1,10 +1,13 @@
 
-<div class="container d-flex justify-content-around">
-  <div class="flex-grow-1 pe-3">
-    <%= render @activity %><br/>
-    <p><strong>Description :</strong></p><%= @activity.description %>
+<div class="container d-flex justify-content-around" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="flex-grow-1 pe-3" id="yolo">
+    <%= render @activity || "show_activity" %><br/>
 
-    <%= render "activities/map" %>
+    <p><strong>Description :</strong></p><%= @activity.description %>
+    <div class="" id="map" data-map-target="map">
+      <%= render "activities/map" %>
+    </div>
     <div class="mt-5 mb-5">
       <%= link_to "Back to activities", activities_path %>
     </div>
