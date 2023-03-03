@@ -1,8 +1,10 @@
-<% path = activity.photo.attached? ? cl_image_path(activity.photo.key, height: 300, crop: :fill) : asset_path( 'logo_friend.png')%>
+<% path = activity.photo.attached? ? cl_image_path(activity.photo.key) : asset_path( 'logo_friend.png')%>
 <%= link_to activity_path(activity) do %>
-<div class="card-trip  a-none">
 
-  <img src="<%= path %>" class="zoom">
+<div class="card-trip a-none">
+
+  <img src="<%= path %>" style="width: 100%; height: 200px; object-fit: cover;" class="zoom">
+
     <div class="card-trip-infos">
       <div>
        <h2><%= activity.title %></h2>
@@ -14,7 +16,7 @@
 
           <%= link_to user_path(activity.user) do%>
 
-            <img src="<%= cl_image_path(activity.user.photo.key, height: 900) %>" class="card-trip-user avatar-bordered" />
+            <img src="<%= cl_image_path(activity.user.photo.key) %>" class="card-trip-user avatar-bordered" style="object-fit: cover;"/>
           <%end%>
   </div>
 </div>

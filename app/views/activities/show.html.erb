@@ -1,6 +1,6 @@
 
-<div class="container d-flex justify-content-between">
-  <div class="flex-grow-1">
+<div class="container d-flex justify-content-around">
+  <div class="flex-grow-1 pe-3">
     <%= render @activity %><br/>
     <p><strong>Description :</strong></p><%= @activity.description %>
 
@@ -11,11 +11,10 @@
   </div>
 
 
-  <div class="p-3 pt-5">
+  <div class="p-3 pt-5" style="border: #FFFFFF; border-radius: 50px; height: 300px; background-color: white;">
     <%= simple_form_for [@activity, @booking] do |f| %>
     <%= f.input :date%>
     <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
-
