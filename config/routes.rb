@@ -21,7 +21,7 @@ devise_for :users
   get "/myactivities/:id", to: "activities#show_myactivities", as: "show_myactivities"
 
   get "/mybookings", to: "bookings#mybookings", as: "mybookings"
-
+  resources :bookings, only: [:show]
   get '/myprofile', to: 'users#myprofile'
 
 
