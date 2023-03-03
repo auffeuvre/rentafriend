@@ -1,2 +1,1 @@
-<div> <%= message.booking.user.name %> </div>
-<div> <%= message.content %> </div>
+<p style="text-align: left;"> <%= User.find(message.sender).name %> : <%= message.content %> </p>

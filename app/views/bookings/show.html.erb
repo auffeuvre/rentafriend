@@ -1,4 +1,4 @@
-<h4> Messages of <%= @booking.activity.title %></h4>
+<h4> Messages of <%= @booking.activity.title %> with <%= @booking.activity.user.name %> : <%= @booking.date %></h4>
 <%= turbo_stream_from "messages" %>
 <div id="messages">
  <%= render @messages %>
@@ -7,4 +7,3 @@
   <%= f.input :content %>
   <%= f.button :submit, class: 'btn btn-primary'%>
 <% end %>
-<%= @booking.date %>
